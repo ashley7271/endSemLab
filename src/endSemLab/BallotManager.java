@@ -49,7 +49,7 @@ public class BallotManager
         compareWinner(candidate2);
         compareWinner(candidate3);
         compareWinner(candidate4);
-        System.out.println("The winner of the ballot is " + winner.getName() + "with " + winner.getNumberOfVotes() + "\n" );
+        System.out.println("The winner of the ballot is " + winner.getName() + " with " + winner.getNumberOfVotes() + "\n" );
 
     }
 }

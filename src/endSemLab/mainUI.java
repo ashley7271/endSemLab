@@ -6,6 +6,7 @@ public class mainUI {
 		// TODO Auto-generated method stub
 		BallotUI b = new BallotUI();
 		b.menu();
+		
 	}
 
 }

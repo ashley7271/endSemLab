@@ -64,7 +64,7 @@ public class BallotUI
         }
         else
         {
-            System.out.println("Unknown Choice");
+            System.out.println("Unknown Choice! Choose correct choice!");
             
         }
 
