@@ -5,21 +5,15 @@ import java.util.Scanner;
 public class BallotUI
 {
     // instance variables 
-    private Scanner keyboard;
-    private BallotManager ballot;
-    private String votingMessage;
+    public Scanner keyboard;
+    public BallotManager ballot=new BallotManager("Ashley","Messi","Suarez","Neymar");
+    public String votingMessage;
 
-    /**
-     * Constructor for objects of class HW3BankAccountUI
-     */
+    
     public BallotUI()
     {
         keyboard = new Scanner(System.in);
     }
-
-    /**
-     * The top level menu
-     */
     public void menu()    
     {
         int command = -1;
@@ -30,72 +24,51 @@ public class BallotUI
             execute(command);
         }
     }
-
-    /**
-     * Displays the instructions for the top level menu
-     */
-    private void displayMainMenu()
+    
+	private void displayMainMenu()
     {
         System.out.println("Options are");
-        System.out.println("    To vote for Fred          Enter 1");
-        System.out.println("    To vote for Bill          Enter 2");
-        System.out.println("    To vote for Joe           Enter 3"); 
-        System.out.println("    To vote for Jane          Enter 4");
-        System.out.println("To close    Enter 0");
+        System.out.println("    To vote for Ashley          Enter 1");
+        System.out.println("    To vote for Messi          Enter 2");
+        System.out.println("    To vote for Suarez           Enter 3"); 
+        System.out.println("    To vote for Neymar          Enter 4");
+        System.out.println("To close the election    Enter 0");
     }
-
-    /**
-     * Calls the method appropriate to the command received
-     */
+    private int getCommand()
+    {
+        System.out.print("Enter Choice: ");
+        return keyboard.nextInt();
+    }
     private void execute(int command)
     {
         if(command == 1)
         {
-            candidate1.incrementVoteCound();
+        	ballot.candidate1.incrementVoteCount();
         }
         else if(command == 2)
         {
-            candidate2.incrementVoteCound();
+        	ballot.candidate2.incrementVoteCount();
         }
         else if(command == 3)
         {
-            candidate3.incrementVoteCound();
+        	ballot.candidate3.incrementVoteCount();
         }
         else if(command == 4)
         {
-            candidate4.incrementVoteCound();
+        	ballot.candidate4.incrementVoteCount();
         }            
         else if(command == 0)
         {
-            System.out.println(" Program closing down");
+            System.out.println(" Stopping Elections with result");
+            ballot.reportResults();
         }
         else
         {
-            System.out.println("Unknown command");
-            candidate.castVote();
+            System.out.println("Unknown Choice");
+            
         }
 
     }
-
-    /**
-     * Receives the specified command
-     */
-    private int getCommand()
-    {
-        System.out.print("Enter command: ");
-        return keyboard.nextInt();
-    }
-
-    /**
-     * Method printBookingDetails
-     * This method allows you to print the full booking details, including title, full name, booking number and room type.
-     */
-    private void setupBallot()
-    {
-        return displayMainMenu();
-    }
-
-    private void setupVoteMessage(String vote)
-    {
-    }
+  
 }
+   

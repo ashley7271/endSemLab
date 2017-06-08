@@ -1,17 +1,14 @@
 package endSemLab;
 
-public class BallotManager extends BallotUI
+public class BallotManager
 {
     // instance variables - replace the example below with your own
-    private Candidate candidate1;
-    private Candidate candidate2;
-    private Candidate candidate3;
-    private Candidate candidate4;
-    private Candidate winner;
+    public Candidate candidate1;
+    public Candidate candidate2;
+    public Candidate candidate3;
+    public Candidate candidate4;
+    public Candidate winner;
 
-    /**
-     * Constructor for objects of class BallotManager
-     */
     public BallotManager(String cand1, String cand2, String cand3, String cand4)
     {
         this.candidate1 = new Candidate(cand1);
@@ -20,24 +17,9 @@ public class BallotManager extends BallotUI
         this.candidate4 = new Candidate(cand4);
         this.winner = new Candidate("");
     }
-
-    public void castVote(int vote)
-    {
-        if (vote == 1)
-            candidate1.incrementVoteCount();
-        else if (vote == 2)
-            candidate2.incrementVoteCount();
-        else if (vote == 3)
-            candidate3.incrementVoteCount();
-        else if (vote == 4)
-            candidate4.incrementVoteCount();
-
-    }
-
-    public String reportResults()
+    public void reportResults()
     {
         findWinner();
-        return drawGraph();
     }
 
     private void compareWinner(Candidate candidate)
@@ -67,18 +49,8 @@ public class BallotManager extends BallotUI
         compareWinner(candidate2);
         compareWinner(candidate3);
         compareWinner(candidate4);
+        System.out.println("The winner of the ballot is " + winner.getName() + "with " + winner.getNumberOfVotes() + "\n" );
 
-    }
-
-    private String drawGraph()
-    {  
-        return leader(winner.getName(), winner.getNumberOfVotes());
-    }
-
-    private String leader(String winnerName, int votes)
-    {   
-    	drawGraph();
-        return ("The winner of the ballot is" + winner.getName() + "with"  + winner.getNumberOfVotes() + "\n" + "Results graph");
     }
 }
 
